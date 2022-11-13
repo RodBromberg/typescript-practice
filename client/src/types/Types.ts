@@ -126,4 +126,40 @@ type ObjectType = {
     str: string
   }
 
+  let strValue: string = 'hello'
+
+  console.log('HELLO'.toLowerCase())
+
+  function greet(person: string, date: Date) {
+    console.log(`Hello ${person}, today is ${date.toDateString()}!`);
+  }
+  
+
+  function greeting(person: string, date: string) {
+    console.log(`Hello ${person}, today is ${date}!`);
+  }
+   
+  greet("Brendan", new Date());
+  greeting("Mike", 'nov 13th');
+
+//   greeting("Mike", 13);
+//   tsc --noEmitOnError types.ts
+//   typescript will not compile to js if errors occur
+
+// *** Compiling notes ***
+// Running with --target es2015 changes TypeScript to target ECMAScript 2015, 
+// meaning code should be able to run wherever ECMAScript 2015 is supported. 
+// So running tsc --target es2015 hello.ts gives us the following output:
+// function greet(person, date) {
+//   console.log(`Hello ${person}, today is ${date.toDateString()}!`);
+// }
+// greet("Maddison", new Date());
+
+//  *** Type checking Strictness ***
+//  TypeScript has several type-checking strictness flags that can be turned on or off, 
+//  and all of our examples will be written with all of them enabled unless otherwise stated.
+//  The strict flag in the CLI, or "strict": true in a tsconfig.json toggles them all on 
+//  simultaneously, but we can opt out of them individually. The two biggest ones you should
+//  know about are noImplicitAny and strictNullChecks.
+
 //   const arr: ArrT = [{id: 1, name: 'foo', todos: ['string']}]
